@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>Contactos</title>
 </head>
@@ -11,37 +11,27 @@
         <h1 class="titulo-contactos">Contactos</h1>
     </header>
     <main>
-        <form class="formulario-contactos">
+        <form id="contact-form" class="formulario-contactos">
             <div class="formulario-contactos-grupo">
                 <label class="formulario-contactos-grupo-label" for="EmailUsuario">Email</label>
-                <input class="formulario-contactos-grupo-input" type="Email" name="EmailUsuario" placeholder="mail...">
+                <input class="formulario-contactos-grupo-input" type="email" name="EmailUsuario" placeholder="mail..." required>
             </div>
             <div class="formulario-contactos-grupo">
                 <label class="formulario-contactos-grupo-label" for="Nombre-Apellido">Nombre y Apellido</label>
-                <input class="formulario-contactos-grupo-input" type="text" name="Nombre-Apellido" placeholder="nombre y apellido..." id="">   
+                <input class="formulario-contactos-grupo-input" type="text" name="Nombre-Apellido" placeholder="nombre y apellido..." required>
             </div>
             <div class="formulario-contactos-grupo">
                 <label class="formulario-contactos-grupo-label" for="Edad">Edad</label>
-                <input class="formulario-contactos-grupo-input" type="number" name="Edad" placeholder="edad..." id="">   
+                <input class="formulario-contactos-grupo-input" type="number" name="Edad" placeholder="edad..." required>
             </div>
             <div class="formulario-contactos-grupo">
                 <label class="formulario-contactos-grupo-label" for="">Mensaje</label>
                 <textarea class="formulario-contactos-grupo-textarea" name="Mensaje" placeholder="mensaje..."></textarea>
             </div>
-            <div class="formulario-contactos-grupo">
-                <label class="formulario-contactos-grupo-label" for="">Masculino</label>
-                <input class="formulario-contactos-grupo-input" type="radio" name="sexo">
-                <label class="formulario-contactos-grupo-label" for="">Femenino</label>
-                <input class="formulario-contactos-grupo-input" type="radio" name="sexo">
-            </div>
-            <div class="formulario-contactos-grupo">
-                <label class="formulario-contactos-grupo-label" for="terminos">Acepta terminos y condiciones?</label>
-                <input class="formulario-contactos-grupo-input" type="checkbox" name="terminos">
-            </div>
-            <button type="submit" class="formulario-contactos-boton">Finalizar compra</button>
+            <button type="submit" class="formulario-contactos-boton">finalizar compra</button>
         </form>
     </main>
-    <aside>
-
+    <h2><a href="./index.html">Ir a Inicio</a></h2>
+    <script src="./js/contactos.js"></script>
 </body>
 </html>

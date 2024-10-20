@@ -1,31 +1,31 @@
 [
     {
-        "id": 1, 
-        "nombre": "Nintendo Switch Oled", 
+        "id": 1,
+        "nombre": "Nintendo Switch Oled",
         "precio": 790000,
         "imagen": "./img/nintendo_switch.jpg"
     },
     {
-        "id": 2, 
-        "nombre": "playstation 5", 
+        "id": 2,
+        "nombre": "PlayStation 5",
         "precio": 1150000,
         "imagen": "./img/playstation_5.jpg"
     },
     {
-        "id": 3, 
-        "nombre": "Xbox series x", 
+        "id": 3,
+        "nombre": "Xbox Series X",
         "precio": 1150000,
         "imagen": "./img/xbox_Series_x.jpg"
     },
     {
-        "id": 4, 
-        "nombre": " playstation 4", 
+        "id": 4,
+        "nombre": "PlayStation 4",
         "precio": 750000,
         "imagen": "./img/Playstation_4.jpg"
     },
     {
-        "id": 5, 
-        "nombre": "Xbox Series S", 
+        "id": 5,
+        "nombre": "Xbox Series S",
         "precio": 900000,
         "imagen": "./img/xbox_series_s.jpg"
     }

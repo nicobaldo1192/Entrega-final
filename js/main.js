@@ -1,67 +1,50 @@
-const productos= [
-    {
-        id: 1, 
-        nombre: "Nintendo Switch Oled", 
-        precio: 790000,
-        imagen: "./img/nintendo_switch.jpg",
-    },
-    {
-        id: 2, 
-        nombre: "playstation 5", 
-        precio: 1150000,
-        imagen: "./img/playstation_5.jpg",
-    },
-    {
-        id: 3, 
-        nombre: "Xbox series x", 
-        precio: 1150000,
-        imagen: "./img/xbox_Series_x.jpg",
-    },
-    {
-        id: 4, 
-        nombre: " playstation 4", 
-        precio: 750000,
-        imagen: "./img/Playstation_4.jpg",
-    },
-    {
-        id: 5, 
-        nombre: "Xbox Series S", 
-        precio: 900000,
-        imagen: "./img/xbox_series_s.jpg",
-    },
-]
+let Container = document.getElementById("products-container"); 
+let productos = [];
+let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || []; 
 
-let cartProducts = [] 
-
-let productsContainer = document.getElementById("products-container")
-
+fetch("./db/data.json")
+.then(response => response.json())
+.then(data => {
+    productos = data;
+    renderProductos(data);
+});
 function renderProductos(productsArray) {
     productsArray.forEach(producto => {
-        const card = document.createElement("div")
+        const card = document.createElement("div");
         card.innerHTML = `<h3>${producto.nombre}</h3>
-                        <h4>${producto.precio}</h4>
+                        <h4>$${producto.precio.toFixed(2)}</h4>
                         <img src="${producto.imagen}" alt="${producto.nombre}" class="product-image">
-                        <button class="productoAgregar" id="${producto.id}">Agregar</button>`
-        productsContainer.appendChild(card)
-    })
-    addToCartButton()
+                        <button class="productoAgregar" id="${producto.id}">Agregar</button>`;
+        Container.appendChild(card);
+    });
+    addToCartButton();
 }
-renderProductos(productos)
-
-function addToCartButton () {
-    addButton = document.querySelectorAll(".productoAgregar")
+function addToCartButton() {
+    const addButton = document.querySelectorAll(".productoAgregar");
     addButton.forEach(button => {
         button.onclick = (e) => {
-            const productId = e.currentTarget.id 
-            const selectedProduct = productos.find(producto => producto.id == productId)
-            cartProducts.push(selectedProduct)
-            console.log(cartProducts)
-
-            localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
-        }
-    })
+            const productId = e.currentTarget.id; 
+            const selectedProduct = productos.find(producto => producto.id == productId);
+            addToCart(selectedProduct);
+            Swal.fire({
+                icon: 'success',
+                title: 'Producto Agregado',
+                text: `${selectedProduct.nombre} ha sido agregado al carrito.`,
+                confirmButtonText: 'Aceptar'
+            });
+        };
+    });
 }
-
+function addToCart(product) {
+    const existingProduct = cartProducts.find(item => item.id === product.id);
+    if (existingProduct) {
+        existingProduct.cantidad += 1;
+    } else {
+        product.cantidad = 1;
+        cartProducts.push(product);
+    }
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+}
 Swal.fire({
     icon: "error",
     title: "Dejaste una compra sin terinar",

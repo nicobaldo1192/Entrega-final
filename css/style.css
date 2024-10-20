@@ -89,7 +89,16 @@ button{
 .formulario-contactos-grupo-input::placeholder {
     color: white;
 }
-
-
-
+#resumen-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px black;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+.producto {
+    border-bottom: 1px solid #6b6a67eb;
+    padding: 10px 0;
+}
 
